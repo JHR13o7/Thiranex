@@ -36,7 +36,7 @@ void displayBoard(){
     cout << "     |     |     \n\n";
 }
 
-//Handles user input, validates it, and updates the array
+//  user input, validates it, and updates the array
 void playerMove() {
     int choice;
     bool validMove = false;
@@ -71,14 +71,12 @@ void playerMove() {
 bool checkWin() {
     // Check all rows and cloumns using a single loop
     for (int i = 0; i< 3; i++) {
-        if ((board[i][0] == board[i][1] && board[i][1] == board[i][2]) ||
-            (board[0][i] == board[1][i] && board[1][i] == board[2][i])) {
+        if ((board[i][0] == board[i][1] && board[i][1] == board[i][2]) || (board[0][i] == board[1][i] && board[1][i] == board[2][i])) {
                 return true; //Match found
             }
     }
     // Check both diagonals
-    if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
-        (board[0][2] == board[1][1] && board[1][1] == board[2][0])) {
+    if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) || (board[0][2] == board[1][1] && board[1][1] == board[2][0])) {
             return true; // Match found
         }
         return false; //No winner yet
@@ -89,7 +87,7 @@ bool checkDraw() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (board[i][j] != 'X' && board[i][j] != '0') {
-                return false; //Found an empty spot (still a number, game continues)
+                return false;    //Found an empty spot (still a number, game continues)
             }
         }
     }
@@ -98,7 +96,7 @@ bool checkDraw() {
 
 // Swaps the active player
 void switchPlayer() {
-    // This is a ternary operator. It acts like a compact is-else statement.
+    // This is a ternary operator in place of an is-else statement
     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
 }
 
